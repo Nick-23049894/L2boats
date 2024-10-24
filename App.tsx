@@ -1,117 +1,50 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { ScrollView, View, StyleSheet } from 'react-native';
+import Boat from './components/boats';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+      <ScrollView contentContainerStyle={styles.container}>
+        <View>
+          <Boat
+              name="Sea Ray 500 Sundancer"
+              description="Contoured lines and dramatic styling reveal a refined and powerful presence that will take your breath away."
+              image={require('./img/sea_ray.jpg')}
+          />
+          <Boat
+            name="Four Winns Horizon 180"
+            description="A sporty look and refined details truly set the Horizon 180 above all others.,"
+            image={require('./img/four_winns.jpg')}
+          />
+          <Boat
+            name="Flipper 640 ST"
+            description="A modern take on the classic, traditional hardtop and perfect for a family picnic."
+            image={require('./img/flipper.jpg')}
+          />
+          <Boat
+            name="Princess V48"
+            description="There is the option for an open design with a full-length cockpit and sunroof, or the enclosed deck saloon model, available with the option of a climate controlled interior."
+            image={require('./img/princess.jpg')}
+          />
+          <Boat
+            name="Bayliner 175 Bowrider"
+            description="Its outboard power gives you increased cockpit space and quiet, fuel-efficient performance.,"
+            image={require('./img/bayliner.jpg')}
+          />
+          <Boat
+            name="Fairline Targa 47"
+            description="Stretch out on the large sun bed aft while friends lounge in the generously appointed cockpit."
+            image={require('./img/fairline.jpg')}
+          />
         </View>
       </ScrollView>
-    </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  container: {
+    alignItems: 'center',
+    paddingVertical: 20,
   },
 });
 
