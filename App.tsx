@@ -1,11 +1,12 @@
 import React from 'react';
-import { ScrollView, View, StyleSheet } from 'react-native';
+import {ScrollView, View, StyleSheet, Text} from 'react-native';
 import Boat from './components/boats';
 
 const App = () => {
   return (
       <ScrollView contentContainerStyle={styles.container}>
-        <View>
+        <View style={styles.boatList}>
+          <Text style={styles.title}>Get Boats for Sale</Text>
           <Boat
               name="Sea Ray 500 Sundancer"
               description="Contoured lines and dramatic styling reveal a refined and powerful presence that will take your breath away."
@@ -45,6 +46,23 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     paddingVertical: 20,
+    backgroundColor: '#f2f2f2',
+  },
+  boatList: {
+    width: '100%',
+    maxWidth: 600,
+    paddingHorizontal: 16,
+  },
+
+  title: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#333',
+    textAlign: 'center',
+    marginBottom: 20,
+    textShadowColor: 'rgba(0, 0, 0, 0.1)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
   },
 });
 
